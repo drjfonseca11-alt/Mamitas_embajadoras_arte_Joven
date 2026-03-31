@@ -104,10 +104,11 @@
 
     .hero h1 {
       margin: 24px 0 0;
-      line-height: .95;
+      line-height: 1;
       letter-spacing: -.04em;
       font-size: clamp(52px, 7vw, 108px);
       font-weight: 900;
+      word-break: break-word;
     }
 
     .title-chip {
@@ -186,6 +187,7 @@
       font-size: 42px;
       font-weight: 900;
       line-height: 1;
+      word-break: break-word;
     }
 
     .stat-card .label {
@@ -285,6 +287,7 @@
       justify-content: space-between;
       gap: 14px;
       transition: transform .25s ease;
+      flex-wrap: wrap;
     }
 
     .leaderboard-item.pulse { animation: pulseCard .6s ease; }
@@ -325,6 +328,7 @@
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
+      word-break: break-word;
     }
 
     .leader-sub {
@@ -332,11 +336,13 @@
       font-size: 14px;
       font-weight: 800;
       margin-top: 4px;
+      word-break: break-word;
     }
 
     .leader-points {
       text-align: right;
       flex: 0 0 auto;
+      min-width: 60px;
     }
 
     .leader-points .n {
@@ -436,11 +442,11 @@
     .grad-4 { background: linear-gradient(135deg, #bef264, #34d399); }
 
     .feature-card h3, .activity-card h3, .pricing-card .price {
-      margin: 14px 0 0;
-      font-size: 34px;
-      line-height: 1;
+      font-size: clamp(32px, 3vw, 44px);
+      margin-top: 18px;
+      text-align: center;
+      line-height: 1.1;
       font-weight: 900;
-      letter-spacing: -.03em;
     }
 
     .feature-card p, .activity-card p, .pricing-card p, .split-copy p, .vip p {
@@ -724,6 +730,7 @@
 <body>
   <div class="page">
     <section class="hero">
+      <div style="background:#000;color:#fff;text-align:center;padding:10px 12px;font-weight:900;letter-spacing:.04em;">🔥 Solo 20 mamitas entran al ranking inicial · Cupos limitados</div>
       <div class="confetti-layer" id="confettiLayer"></div>
       <div class="container">
         <div class="hero-grid">
@@ -740,15 +747,19 @@
             </h1>
 
             <p class="lead">
-              Convierte este vacacional en una aventura creativa para tu hijo y en una competencia emocionante para ti.
-              <strong> Arma tu grupo, sube en el ranking y gana premios increíbles.</strong>
+              Imagina a tu hijo creando, feliz, concentrado… y tú liderando el grupo que más artistas reunió.
+              <strong> Con solo 3 amigas ya entras al ranking y puedes ganar la beca completa.</strong>
             </p>
 
+            <!-- Imagen 1: HERO -->
+            <img src="images/1.jpg" alt="Hero" style="width:100%; border-radius:28px; margin-top:20px; object-fit:cover; max-height:320px;">
+
             <div class="cta-row">
-              <a class="btn btn-red" href="https://wa.me/573015312268?text=Hola%2C%20quiero%20inscribirme%20como%20Mamita%20Embajadora%20y%20empezar%20a%20armar%20mi%20grupo%20%F0%9F%8E%A8">Quiero participar <span>→</span></a>
-              <a class="btn btn-white" href="https://wa.me/573015312268?text=Hola%2C%20me%20interesa%20el%20vacacional%20de%20Arte%20Joven%2C%20me%20puedes%20enviar%20toda%20la%20informaci%C3%B3n%20%F0%9F%93%9D">Ver ranking en vivo</a>
+              <a class="btn btn-red" href="https://wa.me/573015312268?text=Hola%2C%20quiero%20inscribirme%20como%20Mamita%20Embajadora%20y%20empezar%20a%20armar%20mi%20grupo%20%F0%9F%8E%A8" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank'); return false;">Quiero participar <span>→</span></a>
+              <a class="btn btn-white" href="https://wa.me/573015312268?text=Hola%2C%20me%20interesa%20el%20vacacional%20de%20Arte%20Joven%2C%20me%20puedes%20enviar%20toda%20la%20informaci%C3%B3n%20%F0%9F%93%9D" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank'); return false;">Ver ranking en vivo</a>
             </div>
 
+            <div style="margin-top:16px;font-weight:900;color:#111827;">Desde $300.000 por niño · Materiales incluidos</div>
             <div class="stats">
               <div class="stat-card">
                 <div class="value">+12</div>
@@ -776,7 +787,7 @@
                 </div>
               </div>
 
-              <div class="live-message" id="liveMessage">🔥 Mariana acaba de sumar 1 artista y subió en el ranking</div>
+              <div class="live-message" id="liveMessage">🔥 Estás a 1 artista de entrar al TOP 3</div>
 
               <div class="leaderboard" id="leaderboard"></div>
 
@@ -802,6 +813,13 @@
     <section class="section">
       <div class="container">
         <div class="cards-4">
+          <div class="card feature-card" style="grid-column:1/-1;background:#fff8e1; display:flex; align-items:center; gap:16px;">
+            <!-- Imagen 2: PRUEBA SOCIAL -->
+            <img src="images/2.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
+            <div>
+            <h3 style="margin-top:0">Ellas ya están participando</h3>
+            <p style="margin-top:6px">“Armé mi grupo en 2 días y mi hijo está feliz.” · “Ya vamos 4 niños, voy por el TOP 3.”</p>
+          </div>
           <div class="card feature-card">
             <div class="feature-icon grad-1">👑</div>
             <h3>Beca completa</h3>
@@ -840,6 +858,8 @@
           <div class="card activity-card rotate-left">
             <div class="activity-top blob-yellow"></div>
             <div class="activity-inner">
+              <!-- Imagen 3 -->
+              <img src="images/3.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:16px;margin-bottom:10px;">
               <div class="activity-badge">✏️</div>
               <h3>Dibujo</h3>
               <p>Trazos, personajes, ideas y creatividad desde la primera línea.</p>
@@ -847,6 +867,8 @@
             </div>
           </div>
           <div class="card activity-card rotate-right">
+            <!-- Imagen 4 -->
+            <img src="images/4.jpg" style="width:100%;height:120px;object-fit:cover;">
             <div class="activity-top blob-blue"></div>
             <div class="activity-inner">
               <div class="activity-badge">🎨</div>
@@ -856,6 +878,8 @@
             </div>
           </div>
           <div class="card activity-card rotate-soft">
+            <!-- Imagen 5 -->
+            <img src="images/5.jpg" style="width:100%;height:120px;object-fit:cover;">
             <div class="activity-top blob-pink"></div>
             <div class="activity-inner">
               <div class="activity-badge">🗿</div>
@@ -890,22 +914,24 @@
             <div class="pricing-grid" style="margin-top:22px;">
               <div class="card pricing-card">
                 <div class="label-chip bg-y">3 niños</div>
-                <div class="price">$1.000.000</div>
+                <div class="price"><span style="font-size:18px;display:block;">COP</span>$1.0M</div>
                 <p>Ideal para un mini grupo creativo</p>
               </div>
               <div class="card pricing-card">
                 <div class="label-chip bg-b">4 niños</div>
-                <div class="price">$1.200.000</div>
+                <div class="price"><span style="font-size:18px;display:block;">COP</span>$1.2M</div>
                 <p>Más amigos, más emoción</p>
               </div>
-              <div class="card pricing-card">
+              <div class="card pricing-card" style="transform:scale(1.05);border:6px solid #000;position:relative;">
+                <div style="position:absolute;top:-16px;left:-16px;background:#ff0000;color:#fff;padding:6px 10px;border-radius:12px;border:3px solid #000;font-weight:900;">🔥 MÁS VENDIDO</div>
                 <div class="label-chip bg-p">5 niños</div>
-                <div class="price">$1.500.000</div>
+                <div class="price"><span style="font-size:18px;display:block;">COP</span>$1.5M</div>
                 <p>Grupo grande, energía total</p>
               </div>
             </div>
 
             <div class="prize-card">
+              <p style="margin-top:0;font-weight:900;color:#111827;">Valor normal por niño: $390.000</p>
               <div class="prize-head">
                 <div class="icon-box icon-pink" style="width:54px;height:54px;font-size:24px;">🔥</div>
                 <h3>Premio mayor del ranking</h3>
@@ -920,6 +946,8 @@
     <section class="section" id="vip">
       <div class="container">
         <div class="vip">
+          <!-- Imagen 6: VIP -->
+          <img src="images/6.jpg" style="width:100%;border-radius:20px;margin-bottom:20px;object-fit:cover;">
           <div class="vip-grid">
             <div>
               <div class="small-pill">✨ Comunidad VIP Arte Joven</div>
@@ -927,8 +955,8 @@
               <p>Únete al movimiento de mamitas que inspiran, recomiendan y hacen que más niños vivan el arte. Ranking en vivo, premios, emoción y una comunidad que se mueve con amor y creatividad.</p>
             </div>
             <div class="vip-actions">
-              <a class="btn btn-yellow" href="https://wa.me/573015312268?text=Hola%2C%20quiero%20entrar%20al%20ranking%20y%20saber%20cu%C3%A1ntos%20ni%C3%B1os%20necesito%20para%20subir%20%F0%9F%8F%86">Quiero entrar al ranking</a>
-              <a class="btn btn-ghost" href="https://wa.me/573015312268?text=Hola%2C%20quiero%20armar%20mi%20grupo%20para%20el%20vacacional%2C%20%C2%BFme%20explicas%20c%C3%B3mo%20funcionan%20los%20descuentos%3F%20%F0%9F%91%A8%E2%80%8D%F0%9F%91%A7%E2%80%8D%F0%9F%91%A6">Quiero armar mi grupo</a>
+              <a class="btn btn-yellow" href="https://wa.me/573015312268?text=Hola%2C%20quiero%20entrar%20al%20ranking%20y%20saber%20cu%C3%A1ntos%20ni%C3%B1os%20necesito%20para%20subir%20%F0%9F%8F%86" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank'); return false;">Quiero entrar al ranking</a>
+              <a class="btn btn-ghost" href="https://wa.me/573015312268?text=Hola%2C%20quiero%20armar%20mi%20grupo%20para%20el%20vacacional%2C%20%C2%BFme%20explicas%20c%C3%B3mo%20funcionan%20los%20descuentos%3F%20%F0%9F%91%A8%E2%80%8D%F0%9F%91%A7%E2%80%8D%F0%9F%91%A6" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank'); return false;">Quiero armar mi grupo</a>
             </div>
           </div>
         </div>
@@ -942,7 +970,7 @@
             <div class="logo-wordmark"><span class="red">ARTE</span> <span class="blue">JOVEN</span></div>
             <div style="margin-top:6px; font-size:13px; font-weight:900; color:#64748b; text-transform:uppercase; letter-spacing:.08em;">Enseñamos con amor</div>
           </div>
-          <div class="footer-note">Landing conceptual estilo Art Attack · divertida, energética y lista para vender emoción con ranking en vivo.</div>
+          
         </div>
       </div>
     </footer>
@@ -963,6 +991,8 @@
     });
 
     const liveMessages = [
+      '🔥 Estás a 1 artista de entrar al TOP 3',
+      '⚡ Con 3 amigas ya compites por premios',
       '🔥 Mariana acaba de sumar 1 artista y subió en el ranking',
       '✨ Valentina está a 2 artistas del TOP 3',
       '💖 Laura sigue liderando la misión creativa',
